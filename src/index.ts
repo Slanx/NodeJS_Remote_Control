@@ -3,7 +3,7 @@ import { httpServer } from './http_server';
 import { commandHendler } from './commands/commandHendler';
 
 const HTTP_PORT = 3000;
-const WS_PORT = 8080;
+const WS_PORT = 8181;
 
 httpServer.listen(HTTP_PORT, () => {
   process.stdout.write(`Start static http server on the ${HTTP_PORT} port! \n`);
@@ -29,10 +29,5 @@ wsServer.on('connection', (websoket) => {
       .catch((e) => {
         console.log(e);
       });
-  });
-
-  websoketStream.on('close', () => {
-    console.log('Connection is closed');
-    process.exit();
   });
 });
